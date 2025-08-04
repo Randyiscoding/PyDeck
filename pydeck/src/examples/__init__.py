@@ -6,9 +6,6 @@
 # Purpose:
 # [Brief one-sentence description of what the program does]
 # --------------------------------------------------------
-from pydeck.src.pydeck_randyiscoding.deck_of_cards import Deck
-
-
 
 def main():
     # Main function to control program flow

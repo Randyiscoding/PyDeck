@@ -7,8 +7,8 @@
 # Handles creation of a deck of playing cards, deals that deck and allows for discarding cards from hand
 # --------------------------------------------------------
 
-import properties as p
-import card as c
+from . import properties as p
+from . import card as c
 import random
 class Deck():
     def __init__(self, gendeck=False):
@@ -41,32 +41,29 @@ class Deck():
 
     def discard_pile(self, card):
         self.discard.append(card)
-        if not self.deck: # Checks if Deck is Empty
-            restart = input("Play from Discard Pile? Y/N:")
-            if restart.capitalize() == "Y":
-                self.deck = self.discard.copy()
-                random.shuffle(self.deck)
-                self.discard = []
-            else:
-                pass
     def _getsize(self):
         return len(self.deck)
 
+    def _resetdeck(self):
+        self.deck = self.discard.copy()
+        random.shuffle(self.deck)
+        self.discard = []
+        return self.deck
 
 
 
 
+#
+# game = Deck()
+#
+# game.new_deck()
+#
+# user = game.deal(2)
+# pc = game.deal(2)
+#
+# print(f'The user has {user} in thier hand')
+# print(f'The PC has {pc} in thier hands')
+#
+# user.append(game.draw())
+# print(f'The user has {user} in thier hand')
 
-
-game = Deck()
-
-game.new_deck()
-
-user = game.deal(2)
-pc = game.deal(2)
-
-print(f'The user has {user} in thier hand')
-print(f'The PC has {pc} in thier hands')
-
-user.append(game.draw())
-print(f'The user has {user} in thier hand')

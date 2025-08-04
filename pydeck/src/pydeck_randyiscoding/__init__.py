@@ -6,6 +6,10 @@
 # Purpose:
 # [Brief one-sentence description of what the program does]
 # --------------------------------------------------------
+from .deck_of_cards import Deck
+#from .card import Card
+#from .properties import Suits, EmptyDeck
+
 
 def main():
     # Main function to control program flow

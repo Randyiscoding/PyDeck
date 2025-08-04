@@ -18,8 +18,12 @@ class Card:
     def __eq__(self, other):
         return self.rank == other.rank and self.suit == other.suit
 
+    # Might remove due to this logic exclusive to and can be handled in game vs as part of the deck itsself
     def is_wild(self, duceswild=False):
         return duceswild and str(self.rank) == '2'
+
     def value(self, acehigh=False):
-        value_map = {'Jack': 11, 'Queen': 12, 'King': 13, 'Ace': 14 if acehigh else 1}
-        return value_map.get(self.rank, int(self.rank)) if str(self.rank).isdigit() else value_map.get(self.rank, 0)
+        values = {
+            '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7,'8': 8,'9': 9,'10': 10,'Jack': 11, 'Queen': 12,
+            'King': 13, 'Ace': 14 if acehigh else 1}
+        return values[self.rank]
